@@ -746,6 +746,7 @@ if (!String.prototype.slugify) {
         }
 
         // do all the replacements
+        slug = slug.replace(/\&.+\;/g, '');
         slug = slug.toLowerCase(); // if we don't do this, add the uppercase versions to the sanitizer plus inlcude A-Z in the prohibited filter
         slug = slug.replace(prohibited, function (match) { return sanitizer[match] || ''; });
         slug = slug.replace(consecutive, delimiter);
